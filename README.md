@@ -8,6 +8,7 @@ Node.js versions >= 0.8.0
 
 #Instructions
 
+-clone repository<br>
 -cd to project directory <br>
 -$npm install <br>
 -$grunt serve
