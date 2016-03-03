@@ -1,0 +1,27 @@
+<div class="row">
+  <div id="header-panel">
+    <h1>Flickr Gallery</h1> 
+    <input type="text" ng-model="foo" placeholder="Enter something" />
+    <input type="button" ng-click="fetchPhotos()" value="Search" ng-disabled="foo == null"/>
+  </div>                 
+  <div ng-repeat="item in feeds track by $index">
+    <div id="photo-panel" class="col-md-12" >
+      <div class="col-md-4">
+        <a ng-href="#/photo/{{$index}}/"><img id="image-style" ng-src="{{item.media.m}}"></a>
+      </div>
+      <div id="photo-content" class="col-md-7">
+        <h2>{{item.title}}</h2>
+        <h3>Published, {{item.published | date:"MM/dd/yyyy 'at' h:mma"}}</h3>
+        <div id="link-panel">
+          <a href="{{item.author}}"><h4>Photo Author</h4></a>
+          <a href="{{item.link}}"><h4>View on Flickr</h4></a>
+        </div>
+        <div id='social-icons'>
+          <a href='https://www.facebook.com/sharer/sharer.php?u={{item.link}}"'><img src='../images/facebook.png'/></a>
+          <a href='https://twitter.com/home?status={{item.link}}"'><img src='../images/twitter.png'/></a>
+          <a href='https://pinterest.com/pin/create/button/?url="{{item.link}}"'><img src='../images/pintrest.png'/></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
