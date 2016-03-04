@@ -8,7 +8,8 @@ Node.js versions >= 0.8.0
 
 #Instructions
 
--cd to project directory <br>
+-clone repository<br>
+-$cd potatoFlickr <br>
 -$npm install <br>
 -$grunt serve
 
