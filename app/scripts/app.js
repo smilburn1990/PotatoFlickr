@@ -35,7 +35,6 @@ angular
             $scope.photoIndex = window.location.href.substr(window.location.href.lastIndexOf('/') + 1)
             $scope.chosenPhoto = $scope.feeds[$scope.photoIndex];
             $scope.photoTags = $scope.chosenPhoto.tags;
-            console.log($scope.photoTags)
             $scope.isFetching = false;
             $scope.failed = false;
           });
@@ -51,7 +50,6 @@ angular
     $scope.$on('$viewContentLoaded', function () {
         $window.scrollTo(0, 0);
     });
-    console.log($scope.query);
     $scope.fetchPhotos();
   });
   
