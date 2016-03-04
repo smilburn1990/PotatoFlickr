@@ -1,6 +1,6 @@
 @font-face {
 	font-family: junegull;
-	src: url('../../fonts/junegull.ttf');
+	src: url('../fonts/junegull.ttf');
 }
 
 body {
@@ -11,14 +11,17 @@ h1 {
 	font-size: 70px;
 	font-weight: 400;
 	text-shadow: 4px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
-	color: #000;
+	color: #000059;
 	margin:20px 0;
 	text-align: center;
 }
+input {
+	display:inline;
+}
 
 #header-panel {
-	background-color: #f0ad4e;
-    border-radius: 5px;
+	background-color: #9999cc;
+    border-radius: 10px;
     margin: 15px;
     padding: 15px 0;
     width: 98%;
@@ -26,38 +29,41 @@ h1 {
 }
 
 #photo-panel {
-    background-color: #f0ad4e;
-    border-radius: 5px;
+    background-color: #9999cc;
+    border-radius: 10px;
     margin: 15px;
     padding: 30px 0;
     width: 98%;
     text-align: center;
+
 }
 
 #photo-content {
-	text-align: left;
+    text-align: left;
 }
 
-#image-style {
-	border: 5px solid #fff;
+#image-style, #chosen {
 	border-radius: 5px;
-	-webkit-transition: all .15s linear;
-  	-moz-transition: all .15s linear;
-  	transition: all .15s linear;
+	border: 2px solid #fff;
 }
 
-/*#image-style:hover{
+#chosen:hover{
 	-webkit-transform: rotate(0deg); 
 	-moz-transform: rotate(0deg);
 	transform: rotate(0deg);
 	-webkit-transform: scale(1.2); 
 	-moz-transform: scale(1.2);
 	transform: scale(1.2);
-}*/
+}
 
 #social-icons img {
-	width: 5%;
-	margin-right: 15px;
+    width: 8%;
+    margin-right: 15px;
+    border-radius: 10px;;
+}
+
+#social-icons img:hover {
+	opacity: 0.7;
 }
 
 #link-panel {
@@ -69,7 +75,8 @@ h1 {
 }
 
 #inner-panel {
-	padding: 0 0 150px 47px;
+	padding: 0 0 150px 55px;
 	text-align: left;
 }
+
 

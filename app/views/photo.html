@@ -1,31 +1,33 @@
 <div class="row">
   <div id="header-panel">
     <h1>Flickr Gallery</h1> 
-    <a ng-href="#/main/"><input type="button" href="#/main" value="Back"/></a>
+    <div style="margin: 0 auto; width: 50%;" id="custom-search-input">
+      <div style="margin-bottom: 20px;" class="input-group col-md-12">
+          <span class="input-group-btn">
+              <a href="#/main"><button class="btn btn-primary btn-lg" type="button">Back</button></a>
+          </span>
+      </div>
+    </div>
   </div>                 
-  <div ng-repeat="item in feeds.items[$index]">
+  <div>
     <div id="photo-panel" class="col-md-12" >
       <div id="inner-panel">
         <div id="link-panel" class="col-md-12" >
-          <a href="{{item.link}}"><h2>{{item.title}}</h2></a>
+          <a href="{{chosenPhoto.link}}"><h2>{{chosenPhoto.title}}</h2></a>
         </div>
         <div id="link-panel" class="col-md-12" >
-          <a href="{{item.author}}"><h3>Photo Author</h3></a><h3>Published, {{item.published | date:"MM/dd/yyyy 'at' h:mma"}}</h3>
+          <a href="{{chosenPhoto.author}}"><h3>Photo Author</h3></a><h3>Published, {{chosenPhoto.published | date:"MM/dd/yyyy 'at' h:mma"}}</h3>
         </div>
       </div>
       <div class="col-md-12" >
         <div class="col-md-4">
-          <img id="image-style" ng-src="{{item.media.m}}">
+          <img id="chosen" ng-src="{{chosenPhoto.media.m}}">
         </div>
         <div id="photo-content" class="col-md-7">
-          <p>{{item.description}}</p>
-          <div id='social-icons'>
-            <a href='https://www.facebook.com/sharer/sharer.php?u={{item.link}}"'><img src='../images/facebook.png'/></a>
-            <a href='https://twitter.com/home?status={{item.link}}"'><img src='../images/twitter.png'/></a>
-            <a href='https://pinterest.com/pin/create/button/?url="{{item.link}}"'><img src='../images/pintrest.png'/></a>
-          </div>
+          <p>{{chosenPhoto.description}}</p>
+          <button ng-repeat="chosen in photoTags.split(' ') | limitTo:6 track by $index" class="btn btn-primary btn-lg" type="button">{{chosen}}</button>
         </div>
       </div>
     </div>
-
+  </div>
 </div>
