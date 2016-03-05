@@ -13,13 +13,13 @@ angular
       })
       .when('/photo/:id*', {
         templateUrl: 'views/photo.html',
-        controller: 'FlickrController'
+        controller: 'PhotoController'
       })
       .otherwise({
         redirectTo: '/main'
       });
   })
-  .controller('FlickrController', function($scope, $routeParams, $window) {
+  .controller('FlickrController', function($scope, $rootScope, $window) {
     $scope.fetchPhotos = function(){
       $scope.array = [];
       $scope.failed = false;        
@@ -31,12 +31,14 @@ angular
         jsonpCallback: 'jsonFlickrFeed',            
         success: function(feeds){
           $scope.$apply(function(){
-            $scope.feeds = $scope.array.concat(feeds.items);
-            $scope.photoIndex = window.location.href.substr(window.location.href.lastIndexOf('/') + 1)
-            $scope.chosenPhoto = $scope.feeds[$scope.photoIndex];
-            $scope.photoTags = $scope.chosenPhoto.tags;
+            $rootScope.feeds = $scope.array.concat(feeds.items);
             $scope.isFetching = false;
             $scope.failed = false;
+            $scope.limit= 5;
+            $scope.loadMore = function() {
+              $scope.limit = $scope.limit + 5;
+              console.log($scope.limit)
+            }
           });
       },
       error: function(error){
@@ -47,10 +49,23 @@ angular
         }
       });
     };
-    $scope.$on('$viewContentLoaded', function () {
+    $scope.$on('$viewContentLoaded', function() {
         $window.scrollTo(0, 0);
     });
+    $('#search-bar').keypress(function(e){
+        if(e.which == 13){//Enter key pressed
+            $('#search-button').click();//Trigger search button click event
+        }
+    });
     $scope.fetchPhotos();
+  })
+  .controller('PhotoController', function($scope, $rootScope, $window) {
+    $scope.choosePhoto = function() {
+      $scope.photoIndex = window.location.href.substr(window.location.href.lastIndexOf('/') + 1)
+      $scope.chosenPhoto = $rootScope.feeds[$scope.photoIndex];
+      $scope.photoTags = $scope.chosenPhoto.tags;
+    }
+    $scope.choosePhoto();
   });
   
 
