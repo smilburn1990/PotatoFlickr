@@ -16,7 +16,7 @@
           <a href="{{chosenPhoto.link}}"><h2>{{chosenPhoto.title}}</h2></a>
         </div>
         <div id="link-panel" class="col-md-12" >
-          <a href="https://www.flickr.com/photos/{{chosenPhoto.author_id}}"><h3>Photo Author</h3></a><h3>Published, {{chosenPhoto.published | date:"MM/dd/yyyy 'at' h:mma"}}</h3>
+          <a href="https://www.flickr.com/photos/{{chosenPhoto.author_id}}"><h3>Photo Author</h3></a><h3>&nbsp| Published, {{chosenPhoto.published | date:"MM/dd/yyyy 'at' h:mma"}}</h3>
         </div>
       </div>
       <div class="col-md-12" style="margin: 50px";>
@@ -25,7 +25,7 @@
         </div>
         <div id="photo-content" class="col-md-7">
           <p>{{chosenPhoto.description}}</p>
-          <button style="margin-right:5px;" ng-repeat="chosen in photoTags.split(' ') | limitTo:5 track by $index" class="btn btn-primary btn-lg" type="button">{{chosen}}</button>
+          <button style="margin-right:5px;" ng-repeat="chosen in photoTags.split(' ') | limitTo:3 track by $index" class="btn btn-primary btn-lg" type="button">{{chosen}}</button>
         </div>
       </div>
     </div>

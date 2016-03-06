@@ -12,18 +12,16 @@
       </div>
     </div>
   </div>                 
-  <div ng-repeat="item in feeds | limitTo:limit track by $index">
+  <div ng-repeat="item in feeds.items | limitTo:limit track by $index">
     <div id="photo-panel" class="col-md-12" >
       <div class="col-md-4">
         <a ng-href="#/photo/{{$index}}"><img id="image-style" ng-src="{{item.media.m}}"></a>
       </div>
       <div id="photo-content" class="col-md-7">
         <div style="font-size:30px;">{{item.title}}</div>
-        <div style="font-size:20px;">Published, {{item.published | date:"MM/dd/yyyy 'at' h:mma"}}</div>
-        <div id="link-panel">
-          <a href="https://www.flickr.com/photos/{{$index}}"><h4>Photo Author</h4></a>
-          <a href="{{item.link}}"><h4>View on Flickr</h4></a>
-        </div>
+        <a id="photo-author" href="https://www.flickr.com/photos/{{$index}}"><h4>Photo Author</h4></a>
+        <div id="publish-date" style="font-size:20px;">Published, {{item.published | date:"MM/dd/yyyy 'at' h:mma"}}</div>
+        <a id="flickr-link" href="{{item.link}}"><h4>View on Flickr</h4></a>
         <div id='social-icons'>
           <a href='https://www.facebook.com/sharer/sharer.php?u={{item.link}}'><img src='../images/facebook.png'/></a>
           <a href='https://twitter.com/home?status={{item.link}}'><img src='../images/twitter.png'/></a>

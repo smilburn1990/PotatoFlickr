@@ -37,10 +37,6 @@ input {
     text-align: center;
 }
 
-#photo-content {
-    text-align: left;
-}
-
 #image-style, #chosen {
 	border-radius: 5px;
 	border: 2px solid #fff;
@@ -53,6 +49,23 @@ input {
 	-webkit-transform: scale(1.2); 
 	-moz-transform: scale(1.2);
 	transform: scale(1.2);
+}
+@media screen and (min-width:800px) {
+    #photo-author {
+    	display: inline-block;
+    }
+    #flickr-link {
+        display: inline-block;
+    }
+    #publish-date {
+        display: inline-block;
+    }
+    #photo-content {
+    	text-align: left;
+	}
+}
+#photo-content {
+	margin-top: 20px;
 }
 
 #social-icons img {
@@ -69,7 +82,7 @@ input {
 	display: inline-flex;
 }
 
-#link-panel > a {
+#flickr-link, #photo-author {
 	margin-right: 15px;
 }
 
