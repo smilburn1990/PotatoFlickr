@@ -1,4 +1,4 @@
-#Essensys Test
+#Flickr Public Feed
 
 The task is to build from a Flickr gallery from the public API with the guidence of a specification
 
