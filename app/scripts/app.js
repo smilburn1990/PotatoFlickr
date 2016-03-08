@@ -3,7 +3,8 @@
 angular
   .module('potatoFlickrApp', [
     'ngResource',
-    'ngRoute'
+    'ngRoute',
+    'ngStorage'
   ])
   //Provides page routes and adds controllers accordingly
   .config(function ($routeProvider) {
@@ -28,11 +29,14 @@ angular
     });
   })
   //Controller for main page
-  .controller('FlickrController', function($scope, $rootScope, $window, FlickrService) {    
+  .controller('FlickrController', function($scope, $localStorage, $window, FlickrService) {    
     $scope.limit = 5; //Limits number of photos to 5
     //Function for fetching photographs
     $scope.fetchPhotos = function() {
-      $rootScope.feeds = FlickrService.load({ tags: $scope.query });//Adds custom search query to url
+      FlickrService.load({ tags: $scope.query }).$promise.then(function(data) {//Adds custom search query to url
+        $localStorage.feeds = data;
+        $scope.feeds = $localStorage.feeds;
+      })
     }
     //Function for loading more images
     $scope.loadMore = function() {
@@ -50,13 +54,11 @@ angular
     $scope.fetchPhotos();//Call fetchPhoto function
   })
   //Controller for photo detail page
-  .controller('PhotoController', function($scope, $rootScope, $window, FlickrService) {
-    $scope.$on('$viewContentLoaded', function () {
-      $window.scrollTo(0, 0);
-    });
+  .controller('PhotoController', function($scope, $localStorage, $window, FlickrService) {
     $scope.choosePhoto = function() {
+      console.log($localStorage.feeds)
       $scope.photoIndex = window.location.href.substr(window.location.href.lastIndexOf('/') + 1)//Takes the index of the photo from the url
-      $scope.chosenPhoto = $scope.feeds.items[$scope.photoIndex];//Creates scope for chosen photo using the index
+      $scope.chosenPhoto = $localStorage.feeds.items[$scope.photoIndex];//Creates scope for chosen photo using the index
       $scope.photoTags = $scope.chosenPhoto.tags;//Creates scope for the tags
     }
   });
