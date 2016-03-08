@@ -55,8 +55,10 @@ angular
   })
   //Controller for photo detail page
   .controller('PhotoController', function($scope, $localStorage, $window, FlickrService) {
+    $scope.$on('$viewContentLoaded', function () {
+      $window.scrollTo(0, 0);
+    });
     $scope.choosePhoto = function() {
-      console.log($localStorage.feeds)
       $scope.photoIndex = window.location.href.substr(window.location.href.lastIndexOf('/') + 1)//Takes the index of the photo from the url
       $scope.chosenPhoto = $localStorage.feeds.items[$scope.photoIndex];//Creates scope for chosen photo using the index
       $scope.photoTags = $scope.chosenPhoto.tags;//Creates scope for the tags
