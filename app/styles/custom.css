@@ -42,7 +42,7 @@ input {
 	border: 2px solid #fff;
 	margin-bottom: 20px;
 	width: 240px;
-	height: 180px;
+	height: auto;
     overflow: hidden;
 }
 
