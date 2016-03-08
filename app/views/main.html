@@ -19,19 +19,17 @@
       </div>
       <div id="photo-content" class="col-md-7">
         <div style="font-size:30px;">{{item.title}}</div>
-        <div id="photo-details">
-          <div id="publish-date"><h4>Published, {{item.published | date:'medium'}}</h4></div>
-          <div id="link-panel">
-            <a id="flickr-link" href="https://www.flickr.com/photos/{{$index}}"><h4>Photo Author</h4></a>
-            <div id="publish-date-mid"><h4>Published, {{item.published | date:'medium'}}</h4></div>
-            <a id="flickr-link" href="{{item.link}}"><h4>View on Flickr</h4></a>
-          </div>
+        <div id="publish-date"><h4>Published, {{item.published | date:'medium'}}</h4></div>
+        <div id="link-panel">
+          <a id="flickr-link" href="https://www.flickr.com/photos/{{$index}}"><h4>Photo Author</h4></a>
+          <div id="publish-date-mid"><h4>Published, {{item.published | date:'medium'}}</h4></div>
+          <a id="flickr-link" href="{{item.link}}"><h4>View on Flickr</h4></a>
         </div>
         <div id='social-icons'>
           <a href='https://www.facebook.com/sharer/sharer.php?u={{item.link}}'><img src='../images/facebook.png'/></a>
           <a href='https://twitter.com/home?status={{item.link}}'><img src='../images/twitter.png'/></a>
           <a href='https://pinterest.com/pin/create/button/?url={{item.link}}'><img src='../images/pintrest.png'/></a>
-          <div class="g-plusone" data-annotation="inline" data-width="300"><g:plusone></g:plusone></div>
+          <g:plusone size="tall"></g:plusone>
         </div>
       </div>
     </div>
