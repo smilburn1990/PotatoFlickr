@@ -31,9 +31,10 @@ angular
   //Controller for main page
   .controller('FlickrController', function($scope, $localStorage, $window, FlickrService) {    
     $scope.limit = 5; //Limits number of photos to 5
+    $localStorage.query = $scope.query;
     //Function for fetching photographs
     $scope.fetchPhotos = function() {
-      FlickrService.load({ tags: $scope.query }).$promise.then(function(data) {//Adds custom search query to url
+      FlickrService.load({ tags: $localStorage.query }).$promise.then(function(data) {//Adds custom search query to url
         $localStorage.feeds = data;
         $scope.feeds = $localStorage.feeds;
       })
