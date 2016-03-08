@@ -31,12 +31,11 @@ angular
   //Controller for main page
   .controller('FlickrController', function($scope, $localStorage, $window, FlickrService) {    
     $scope.limit = 5; //Limits number of photos to 5
-    $localStorage.query = $scope.query;
     //Function for fetching photographs
     $scope.fetchPhotos = function() {
-      FlickrService.load({ tags: $localStorage.query }).$promise.then(function(data) {//Adds custom search query to url
-        $localStorage.feeds = data;
-        $scope.feeds = $localStorage.feeds;
+      FlickrService.load({ tags: $scope.query }).$promise.then(function(data) {//Adds custom search query to url
+        $localStorage.feeds = data;//stores data to local storage
+        $scope.feeds = $localStorage.feeds;//puts local storage on the scope
       })
     }
     //Function for loading more images
@@ -56,6 +55,7 @@ angular
   })
   //Controller for photo detail page
   .controller('PhotoController', function($scope, $localStorage, $window, FlickrService) {
+    //Function to scroll to top when page is loaded
     $scope.$on('$viewContentLoaded', function () {
       $window.scrollTo(0, 0);
     });
