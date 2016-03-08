@@ -2,11 +2,9 @@
 	font-family: junegull;
 	src: url('../fonts/junegull.ttf');
 }
-
 body {
 	font-family: junegull;
 }
-
 h1 {
 	font-size: 70px;
 	font-weight: 400;
@@ -18,7 +16,6 @@ h1 {
 input {
 	display:inline;
 }
-
 #header-panel {
 	background-color: #AEC6CF;
     border-radius: 10px;
@@ -27,7 +24,6 @@ input {
     width: 98%;
     text-align: center;
 }
-
 #photo-panel {
     background-color: #AEC6CF;
     border-radius: 10px;
@@ -36,7 +32,6 @@ input {
     width: 98%;
     text-align: center;
 }
-
 #image-style, #chosen {
 	border-radius: 5px;
 	border: 2px solid #fff;
@@ -45,7 +40,6 @@ input {
 	height: 180px;
     overflow: hidden;
 }
-
 #chosen:hover{
 	-webkit-transform: rotate(0deg); 
 	-moz-transform: rotate(0deg);
@@ -55,50 +49,59 @@ input {
 	transform: scale(1.2);
 }
 @media screen and (min-width:800px) {
-    #photo-author {
-    	display: inline-block;
-    }
-    #flickr-link {
-        display: inline-block;
-    }
+    #link-panel {
+		display: flex;
+		text-align: left;
+	}
     #publish-date {
+        display: none;
+    }
+    #publish-date-mid {
         display: inline-block;
+        margin-right: 15px;
     }
     #photo-content {
-    	text-align: left !important;
+    	text-align: left;
+    	line-height: initial;
 	}
 	#inner-panel {
 		text-align: left;
-		margin-left: 100px !important;
+		margin-left: 100px;
 	}
 }
-
-#photo-content {
+@media screen and (max-width:800px) {
+    #link-panel {
+		display: inline-flex;
+		text-align: center;
+	}
+    #publish-date {
+	    display: block;
+	}
+    #publish-date-mid {
+        display: none;
+    }
+	#photo-content {
+		text-align: center;
+		line-height: initial;
+	}
+	#inner-panel {
 	text-align: center;
+	margin-left: 0px;
+	}
 }
-
 #social-icons img {
     width: 8%;
     margin-right: 15px;
     border-radius: 10px;;
 }
-
 #social-icons img:hover {
 	opacity: 0.7;
 }
-
-#link-panel {
-	display: inline-flex;
-	text-align: center;
-}
-
-#flickr-link, #photo-author, #publish-date {
+#flickr-link {
 	margin-right: 15px;
 }
-
-#inner-panel {
-	text-align: center;
-	margin-left: 0px;
+#tag-button {
+	margin-bottom: 20px;
 }
 
 

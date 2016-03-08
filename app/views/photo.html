@@ -25,7 +25,7 @@
         </div>
         <div id="photo-content" class="col-md-7">
           <p>{{chosenPhoto.description}}</p>
-          <button style="margin-right:5px;" ng-repeat="chosen in photoTags.split(' ') | limitTo:3 track by $index" class="btn btn-primary btn-lg" type="button">{{chosen}}</button>
+          <button id="tag-button" style="margin-right:5px;" ng-repeat="chosen in photoTags.split(' ') | limitTo:3 track by $index" class="btn btn-primary btn-lg" type="button">{{chosen}}</button>
         </div>
       </div>
     </div>
