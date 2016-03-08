@@ -41,6 +41,9 @@ input {
 	border-radius: 5px;
 	border: 2px solid #fff;
 	margin-bottom: 20px;
+	width: 240px;
+	height: 180px;
+    overflow: hidden;
 }
 
 #chosen:hover{
