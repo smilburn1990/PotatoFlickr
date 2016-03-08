@@ -1,6 +1,6 @@
 #Flickr Public Feed
 
-The task is to build from a Flickr gallery from the public API with the guidence of a specification
+Flickr public gallery with search functionality 
 
 #Requirements
 
@@ -27,8 +27,8 @@ N/A
 
 #Build & development
 
-Run grunt for building and $grunt serve for preview.
+Run grunt for building and '$grunt serve' for preview.
 
 #Testing
 
-Running $grunt test will run the unit tests with karma.
+Running '$grunt test' will run the unit tests with karma.
