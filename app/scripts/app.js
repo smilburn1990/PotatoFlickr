@@ -28,6 +28,7 @@ angular
       { 'load': { 'method': 'JSONP' } 
     });
   })
+  
   //Controller for main page
   .controller('FlickrController', function($scope, $localStorage, $window, FlickrService) {    
     $scope.limit = 5; //Limits number of photos to 5
@@ -46,13 +47,9 @@ angular
         $('#load-more').hide();//else hide button
       }
     }
-    $('#search-bar').keypress(function(e){
-        if(e.which == 13){//Enter key pressed
-            $('#search-button').click();//Trigger search button click event
-        }
-    });
     $scope.fetchPhotos();//Call fetchPhoto function
   })
+
   //Controller for photo detail page
   .controller('PhotoController', function($scope, $localStorage, $window, FlickrService) {
     //Function to scroll to top when page is loaded
@@ -66,4 +63,3 @@ angular
     }
   });
   
-

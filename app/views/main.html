@@ -2,14 +2,10 @@
   <div id="header-panel">
     <h1>Flickr Public Feed</h1> 
     <div style="margin: 0 auto; width: 50%;" id="custom-search-input">
-      <div style="margin-bottom: 20px;" class="input-group col-md-12">
-          <input type="text" id="search-bar" class="form-control input-lg" ng-model="query" placeholder="Enter something..." />
-          <span class="input-group-btn">
-              <button class="btn btn-primary btn-lg" id="search-button" type="button" ng-click="fetchPhotos()">
-                  <i class="glyphicon glyphicon-search"></i>
-              </button>
-          </span>
-      </div>
+      <form ng-submit="fetchPhotos()" style="margin-bottom: 20px;display:flex;" class="input-group col-md-12">
+        <input type="text" id="search-bar" class="form-control input-lg" ng-model="query" placeholder="Enter something..." />
+        <button id="search-button" class="btn btn-primary btn-lg" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+      </form>
     </div>
   </div>                 
   <div ng-repeat="item in feeds.items | limitTo:limit track by $index">
@@ -29,7 +25,7 @@
           <a href='https://www.facebook.com/sharer/sharer.php?u={{item.link}}'><img src='../images/facebook.png'/></a>
           <a href='https://twitter.com/home?status={{item.link}}'><img src='../images/twitter.png'/></a>
           <a href='https://pinterest.com/pin/create/button/?url={{item.link}}'><img src='../images/pintrest.png'/></a>
-          <g:plusone size="tall"></g:plusone>
+          <script src="https://apis.google.com/js/platform.js" async defer></script>
         </div>
       </div>
     </div>
